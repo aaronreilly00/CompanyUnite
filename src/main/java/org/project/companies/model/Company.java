@@ -7,57 +7,85 @@ import javax.persistence.Table;
 
 
 
-@Entity(name="company")
-@Table(name="companies")
+@Entity(name="company_details")
+@Table(name="company_details")
 public class Company {
 	@Id
 	@Column(name="companyId")
 	int companyId;
 	String companyName;
-	String companyAddress;
-	String companyPostcode;
+	String address;
+	String postcode;
+	String sector;
+	String details;
 	
 	public Company() {
 		
 	}
-	
-	public Company(int companyId, String companyName, String companyAddress, String companyPostcode) {
+
+	public Company(int companyId, String companyName, String address, String postcode, String sector, String details) {
 		super();
 		this.companyId = companyId;
 		this.companyName = companyName;
-		this.companyAddress = companyAddress;
-		this.companyPostcode = companyPostcode;
+		this.address = address;
+		this.postcode = postcode;
+		this.sector = sector;
+		this.details = details;
 	}
-	
+
 	public int getCompanyId() {
 		return companyId;
 	}
+
 	public void setCompanyId(int companyId) {
 		this.companyId = companyId;
 	}
+
 	public String getCompanyName() {
 		return companyName;
 	}
+
 	public void setCompanyName(String companyName) {
 		this.companyName = companyName;
 	}
-	public String getCompanyAddress() {
-		return companyAddress;
+
+	public String getAddress() {
+		return address;
 	}
-	public void setCompanyAddress(String companyAddress) {
-		this.companyAddress = companyAddress;
+
+	public void setAddress(String address) {
+		this.address = address;
 	}
-	public String getCompanyPostcode() {
-		return companyPostcode;
+
+	public String getPostcode() {
+		return postcode;
 	}
-	public void setCompanyPostcode(String companyPostcode) {
-		this.companyPostcode = companyPostcode;
+
+	public void setPostcode(String postcode) {
+		this.postcode = postcode;
+	}
+
+	public String getSector() {
+		return sector;
+	}
+
+	public void setSector(String sector) {
+		this.sector = sector;
+	}
+
+	public String getDetails() {
+		return details;
+	}
+
+	public void setDetails(String details) {
+		this.details = details;
 	}
 
 	@Override
 	public String toString() {
-		return "Company [companyId=" + companyId + ", companyName=" + companyName + ", companyAddress=" + companyAddress
-				+ ", companyPostcode=" + companyPostcode + "]";
+		return "Company [companyId=" + companyId + ", companyName=" + companyName + ", address=" + address + ", postcode=" + postcode
+				+ ", sector=" + sector + ", details=" + details + "]";
 	}
-
+	
+	
 }

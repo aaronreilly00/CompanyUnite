@@ -3,32 +3,33 @@ package org.project.companies.DAO;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
-
-import org.project.companies.model.AccountDetails;
+import org.project.companies.model.Account;
 
 public class AccountDetailsDAO {
 
-	public int registerAccountDetails(AccountDetails accountDetails) throws ClassNotFoundException{
+	public int registerAccountDetails(Account account) throws ClassNotFoundException{
 		String INSERT_USERS_SQL = "INSERT INTO account_details" + 
-				" (id, first_name, last_name, username, password, address, contact) VALUES " +
-				" (?, ?, ?, ?, ?, ?, ?);";
+				" (accountId, companyId, first_name, last_name, username, password, phone, email) VALUES " +
+				" (?, ?, ?, ?, ?, ?, ?, ?);";
 		
 		int result = 0;
 		
-		Class.forName("com.mysql.jdbc.Driver");
+		Class.forName("com.mysql.cj.jdbc.Driver");
 		
 		try (Connection connection = DriverManager
-				.getConnection("jdbc:mysql://localhost:3306/showroom1?useSSL=false", "root", "Celeron123!");
+				.getConnection("jdbc:mysql://localhost:3306/company?useSSL=false", "root", "Celeron123!");
 				
 				PreparedStatement preparedStatement = connection.prepareStatement(INSERT_USERS_SQL)){
-			preparedStatement.setInt(1, 1);
-			preparedStatement.setString(2, accountDetails.getFirstName());
-			preparedStatement.setString(3, accountDetails.getLastName());
-			preparedStatement.setString(4, accountDetails.getUsername());
-			preparedStatement.setString(5, accountDetails.getPassword());
-			preparedStatement.setString(6, accountDetails.getAddress());
-			preparedStatement.setString(7, accountDetails.getContact());
+			preparedStatement.setInt(1, 6);
+			preparedStatement.setInt(2, 2);
+			preparedStatement.setString(3, account.getFirstName());
+			preparedStatement.setString(4, account.getLastName());
+			preparedStatement.setString(5, account.getUsername());
+			preparedStatement.setString(6, account.getPassword());
+			preparedStatement.setString(7, account.getPhone());
+			preparedStatement.setString(8, account.getEmail());
 			
 			System.out.println(preparedStatement);
 			
@@ -37,5 +38,32 @@ public class AccountDetailsDAO {
 			e.printStackTrace();
 		}
 		return result;
+	}
+	
+	public boolean validate(Account account) throws ClassNotFoundException {
+		boolean status = false;
+		
+		Class.forName("com.mysql.cj.jdbc.Driver");
+		
+		try(Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/company?useSSL=false", "root", "Celeron123!");
+		
+		PreparedStatement preparedStatement = connection.prepareStatement("select * from account_details where username = ? and password = ? ")){
+			preparedStatement.setString(1, account.getUsername());
+			preparedStatement.setString(2, account.getPassword());
+			
+			System.out.println(preparedStatement);
+			ResultSet rs = preparedStatement.executeQuery();
+			status = rs.next();
+		} catch (SQLException e) {
+			printSQLException(e);
+		}
+		return status;
+		
+				
+	}
+
+	private void printSQLException(SQLException e) {
+		// TODO Auto-generated method stub
+		
 	}
 }

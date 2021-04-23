@@ -5,8 +5,6 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-
-import org.project.companies.model.AccountDetails;
 import org.project.companies.model.Company;
 import org.project.companies.util.DBConnection;
 
@@ -26,7 +24,7 @@ public class CompanyListDAOImpl implements CompanyListDAO {
 					list = new ArrayList<Company>();
 					
 					//Create a sql query
-					String sql = "SELECT * FROM companies";
+					String sql = "SELECT * FROM company_details";
 					
 					//Get the database connection
 					connection = DBConnection.openConnection();
@@ -42,8 +40,10 @@ public class CompanyListDAOImpl implements CompanyListDAO {
 						companyDetails = new Company();
 						companyDetails.setCompanyId(resultSet.getInt("companyId"));
 						companyDetails.setCompanyName(resultSet.getString("companyName"));
-						companyDetails.setCompanyAddress(resultSet.getString("companyAddress"));
-						companyDetails.setCompanyPostcode(resultSet.getString("companyPostcode"));
+						companyDetails.setAddress(resultSet.getString("address"));
+						companyDetails.setPostcode(resultSet.getString("postcode"));
+						companyDetails.setSector(resultSet.getString("sector"));
+						companyDetails.setDetails(resultSet.getString("details"));
 						//Add company details to list
 						list.add(companyDetails);
 					}

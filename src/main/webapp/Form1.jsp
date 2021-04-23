@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Form1</title>https://www.youtube.com/watch?v=jRxoa-l1Uqg&list=PLA7e3zmT6XQVMzpfv1ygJdpD-gWauFIZD&index=43
+<title>Form1</title>
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
 </head>
 <body>

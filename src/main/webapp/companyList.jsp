@@ -8,7 +8,7 @@
 <title>Company List</title>
 <link href="https://unpkg.com/bootstrap@4.5.0/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 </head>
-https://www.youtube.com/watch?v=EHWCWyZ1SoE&list=PLA7e3zmT6XQVMzpfv1ygJdpD-gWauFIZD&index=40
+<%@ include file="header.jsp"%>
 <body>
 	<div class="container">
 		<table border = "1" class="table table-striped table-bordered">
@@ -22,12 +22,15 @@ https://www.youtube.com/watch?v=EHWCWyZ1SoE&list=PLA7e3zmT6XQVMzpfv1ygJdpD-gWauF
 			<c:forEach items = "${list}" var = "companyDetails">
 			<tr>
 				<td>${companyDetails.companyName}</td>
-				<td>${companyDetails.companyAddress}</td>
-				<td>${companyDetails.companyPostcode}</td>
+				<td>${companyDetails.address}</td>
+				<td>${companyDetails.postcode}</td>
+				<td>${companyDetails.sector}</td>
+				<td>${companyDetails.details}</td>
 			</tr>
 		
 			</c:forEach>
 		</table>
 	</div>
 </body>
+<%@ include file="footer.jsp"%>
 </html>

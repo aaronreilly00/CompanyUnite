@@ -5,7 +5,7 @@ import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
-
+import org.project.companies.model.Account;
 import org.project.companies.model.Company;
 
 public class CompanyDAO {
@@ -14,12 +14,13 @@ public class CompanyDAO {
 	SessionFactory factory = new Configuration()
 			.configure("hibernate.cfg.xml")
 			.addAnnotatedClass(Company.class)
+			//.addAnnotatedClass(Account.class)
 			.buildSessionFactory();
 			
 	public List<Company> getCompany() {
 		Session session = factory.getCurrentSession();
 		session.beginTransaction();
-		List<Company> list = session.createQuery("from company").getResultList();
+		List<Company> list = session.createQuery("from company_details").getResultList();
 		return list;
 	}
 

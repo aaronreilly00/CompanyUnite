@@ -7,8 +7,9 @@
 <title>Login</title>
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
 </head>
+<%@ include file="header.jsp"%>
 <body>
-<form action="indexJSP" method="POST">
+<form action="<%=request.getContextPath()%>/Login" method="post">
 <div class="container">
 	<div class="row">
 				<div class="col-lg-3"></div>
@@ -42,4 +43,5 @@
 <script type="text/javascript" src="js/bootstrap.js"></script>
 <script type="text/javascript" src="js/jquery.js"></script>
 </body>
+<%@ include file="footer.jsp"%>
 </html>

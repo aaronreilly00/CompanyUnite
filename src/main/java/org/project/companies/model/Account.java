@@ -6,8 +6,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-@Entity(name="accounts")
-@Table(name="accounts")
+@Entity(name="accounts_details")
+@Table(name="accounts_details")
 public class Account {
 	@Id
 	int accountId;
@@ -16,19 +16,28 @@ public class Account {
 	@JoinColumn(name="companyId")
 	Company company;
 	
-	String accountName;
-	/*
-	 * Add account details i.e 
-	 * String firstName
-	 * String lastName
-	 * String email
-	 * String password
-	 * 
-	 */
-	String category;
+	String firstName;
+	String lastName;
+	String username;
+	String password;
+	String phone;
+	String email;
 	
 	public Account() {
 		
+	}
+	
+	public Account(int accountId, Company company, String firstName, String lastName, String username, String password,
+			String phone, String email) {
+		
+		this.accountId = accountId;
+		this.company = company;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.username = username;
+		this.password = password;
+		this.phone = phone;
+		this.email = email;
 	}
 
 	public int getAccountId() {
@@ -47,23 +56,53 @@ public class Account {
 		this.company = company;
 	}
 
-	public String getAccountName() {
-		return accountName;
+	public String getFirstName() {
+		return firstName;
 	}
 
-	public void setAccountName(String accountName) {
-		this.accountName = accountName;
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
 	}
 
-	public String getCategory() {
-		return category;
+	public String getLastName() {
+		return lastName;
 	}
 
-	public void setCategory(String category) {
-		this.category = category;
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
 
-	
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
 	
 	
 }
