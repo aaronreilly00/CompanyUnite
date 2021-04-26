@@ -32,6 +32,14 @@ public class Company {
 		this.sector = sector;
 		this.details = details;
 	}
+	public Company( String companyName, String address, String postcode, String sector, String details) {
+		super();
+		this.companyName = companyName;
+		this.address = address;
+		this.postcode = postcode;
+		this.sector = sector;
+		this.details = details;
+	}
 
 	public int getCompanyId() {
 		return companyId;

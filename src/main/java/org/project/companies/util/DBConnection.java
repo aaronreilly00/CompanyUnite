@@ -9,7 +9,7 @@ import java.sql.Statement;
 
 public class DBConnection {
 
-private static final String URL = "jdbc:mysql://localhost:3306/company";
+private static final String URL = "jdbc:mysql://localhost:3306/companyunite";
 	
 	private static final String DRIVER = "com.mysql.cj.jdbc.Driver";
 	

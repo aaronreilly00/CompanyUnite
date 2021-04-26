@@ -1,6 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	<%@page import="java.sql.*" %>
+	<%@page import="java.sql.Connection" %>
+    <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-    <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,8 +11,15 @@
 </head>
 <%@ include file="header.jsp"%>
 <body>
+
+	<div class="col-md-4">
+		<form action="" method-"get">
+			<input type="text" class="form-control" name="q" placeholder="Search here...."/>
+		</form>
+	</div>
 	<div class="container">
 		<table border = "1" class="table table-striped table-bordered">
+		<thead>
 			<tr class="thead-dark">
 				<th>Name</th>
 				<th>Address</th>
@@ -19,7 +27,39 @@
 				<th>Sector</th>
 				<th>Additional Information</th>
 			</tr>
-			<c:forEach items = "${list}" var = "companyDetails">
+			</thead>
+			<tbody>
+			<%
+			String host = "jdbc:mysql://localhost:3306/company";
+			Connection conn = null;
+			Statement stat = null;
+			ResultSet res = null;
+			Class.forName("com.mysql.cj.jdbc.Driver");
+        	conn = DriverManager.getConnection(host,"root","Celeron123!");
+        	stat = conn.createStatement();
+		String query = request.getParameter("q");
+		String data;
+		if(query!=null){
+			data = "select * FROM company_details where postcode like '%"+query+"%' or sector like '%"+query+"%'";
+			}else{
+				data = "select * FROM company_details order by companyId desc";
+			}
+			res = stat.executeQuery(data);
+			while(res.next()){
+			%>
+			<tr>
+				<td><%=res.getString("companyName") %></td>
+				<td><%=res.getString("address") %></td>
+				<td><%=res.getString("postcode") %></td>
+				<td><%=res.getString("sector") %></td>
+				<td><%=res.getString("details") %></td>
+			</tr>
+			<%
+			}
+			%>
+			</tbody>
+			<!-- <c:forEach items = "${list}" var = "companyDetails">
+		
 			<tr>
 				<td>${companyDetails.companyName}</td>
 				<td>${companyDetails.address}</td>
@@ -27,8 +67,7 @@
 				<td>${companyDetails.sector}</td>
 				<td>${companyDetails.details}</td>
 			</tr>
-		
-			</c:forEach>
+			</c:forEach>-->
 		</table>
 	</div>
 </body>

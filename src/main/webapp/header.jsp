@@ -22,8 +22,11 @@
       <li class="nav-item">
         <a class="nav-link" href="/CompanyUnite/Login.jsp">Login</a>
       </li>
-      <li class="nav-item">
+        <li class="nav-item">
         <a class="nav-link" href="/CompanyUnite/CompanyListController">Company List</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/CompanyUnite/UpdatedCompanyList">Register Company</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="/CompanyUnite/register">Registration</a>

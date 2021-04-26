@@ -38,8 +38,19 @@
 		<servlet-name>LoginServlet</servlet-name>
 		<servlet-class>org.project.companies.controller.LoginServlet</servlet-class>
 	</servlet>
-	<servlet-mapping>
+		<servlet-mapping>
 		<servlet-name>LoginServlet</servlet-name>
 		<url-pattern>/LoginServlet</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<description>
+		</description>
+		<display-name>UpdatedCompanyList</display-name>
+		<servlet-name>UpdatedCompanyList</servlet-name>
+		<servlet-class>org.project.companies.controller.UpdatedCompanyList</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>UpdatedCompanyList</servlet-name>
+		<url-pattern>/UpdatedCompanyList</url-pattern>
 	</servlet-mapping>
 </web-app>

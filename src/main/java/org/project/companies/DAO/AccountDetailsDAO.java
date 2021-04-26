@@ -19,10 +19,10 @@ public class AccountDetailsDAO {
 		Class.forName("com.mysql.cj.jdbc.Driver");
 		
 		try (Connection connection = DriverManager
-				.getConnection("jdbc:mysql://localhost:3306/company?useSSL=false", "root", "Celeron123!");
+				.getConnection("jdbc:mysql://localhost:3306/companyunite?useSSL=false", "root", "Celeron123!");
 				
 				PreparedStatement preparedStatement = connection.prepareStatement(INSERT_USERS_SQL)){
-			preparedStatement.setInt(1, 6);
+			preparedStatement.setInt(1, 8);
 			preparedStatement.setInt(2, 2);
 			preparedStatement.setString(3, account.getFirstName());
 			preparedStatement.setString(4, account.getLastName());
@@ -45,7 +45,7 @@ public class AccountDetailsDAO {
 		
 		Class.forName("com.mysql.cj.jdbc.Driver");
 		
-		try(Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/company?useSSL=false", "root", "Celeron123!");
+		try(Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/companyunite?useSSL=false", "root", "Celeron123!");
 		
 		PreparedStatement preparedStatement = connection.prepareStatement("select * from account_details where username = ? and password = ? ")){
 			preparedStatement.setString(1, account.getUsername());
