@@ -9,7 +9,7 @@
 <title>Company List</title>
 <link href="https://unpkg.com/bootstrap@4.5.0/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 </head>
-<%@ include file="header.jsp"%>
+<%@ include file="headerLogout.jsp"%>
 <body>
 
 	<div class="col-md-4">
@@ -30,17 +30,17 @@
 			</thead>
 			<tbody>
 			<%
-			String host = "jdbc:mysql://localhost:3306/company";
+			String host = "jdbc:mysql://localhost:3306/companyunite";
 			Connection conn = null;
 			Statement stat = null;
 			ResultSet res = null;
 			Class.forName("com.mysql.cj.jdbc.Driver");
         	conn = DriverManager.getConnection(host,"root","Celeron123!");
         	stat = conn.createStatement();
-		String query = request.getParameter("q");
-		String data;
-		if(query!=null){
-			data = "select * FROM company_details where postcode like '%"+query+"%' or sector like '%"+query+"%'";
+			String query = request.getParameter("q");
+			String data;
+			if(query!=null){
+				data = "select * FROM company_details where postcode like '%"+query+"%' or sector like '%"+query+"%'";
 			}else{
 				data = "select * FROM company_details order by companyId desc";
 			}
@@ -58,16 +58,6 @@
 			}
 			%>
 			</tbody>
-			<!-- <c:forEach items = "${list}" var = "companyDetails">
-		
-			<tr>
-				<td>${companyDetails.companyName}</td>
-				<td>${companyDetails.address}</td>
-				<td>${companyDetails.postcode}</td>
-				<td>${companyDetails.sector}</td>
-				<td>${companyDetails.details}</td>
-			</tr>
-			</c:forEach>-->
 		</table>
 	</div>
 </body>

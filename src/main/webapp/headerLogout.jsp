@@ -16,17 +16,14 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" href="/CompanyUnite/Login.jsp">Login</a>
+      <li class="nav-item active">
+        <a class="nav-link" href="/CompanyUnite/home.jsp">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/CompanyUnite/UpdatedCompanyList">Register Company</a>
+        <a class="nav-link" href="/CompanyUnite/CompanyListController">Company List</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/CompanyUnite/register">Registration</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/CompanyUnite/Login.jsp">Logout</a>
+        <a class="nav-link disabled" href="#">About us</a>
       </li>
     </ul>
   </div>

@@ -7,9 +7,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
 import org.project.companies.DAO.AccountDetailsDAO;
 import org.project.companies.model.Account;
+
 
 @WebServlet("/Login")
 public class LoginServlet extends HttpServlet {
@@ -33,7 +33,7 @@ public class LoginServlet extends HttpServlet {
 		
 		try {
 			if (accountDetailsDAO.validate(account)) {
-				response.sendRedirect("CompanyListController");
+				response.sendRedirect("UpdatedCompanyList");
 			} else {
 				HttpSession session = request.getSession();		
 				response.sendRedirect("Login.jsp");

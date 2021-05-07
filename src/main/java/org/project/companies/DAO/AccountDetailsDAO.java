@@ -22,7 +22,7 @@ public class AccountDetailsDAO {
 				.getConnection("jdbc:mysql://localhost:3306/companyunite?useSSL=false", "root", "Celeron123!");
 				
 				PreparedStatement preparedStatement = connection.prepareStatement(INSERT_USERS_SQL)){
-			preparedStatement.setInt(1, 8);
+			preparedStatement.setInt(1, 9);
 			preparedStatement.setInt(2, 2);
 			preparedStatement.setString(3, account.getFirstName());
 			preparedStatement.setString(4, account.getLastName());
