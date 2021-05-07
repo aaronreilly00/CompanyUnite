@@ -27,9 +27,20 @@ public class Account {
 		
 	}
 	
+	public Account(String firstName, String lastName, String username, String password,
+			String phone, String email) {
+		super();
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.username = username;
+		this.password = password;
+		this.phone = phone;
+		this.email = email;
+	}
+	
 	public Account(int accountId, Company company, String firstName, String lastName, String username, String password,
 			String phone, String email) {
-		
+		super();
 		this.accountId = accountId;
 		this.company = company;
 		this.firstName = firstName;

@@ -27,7 +27,7 @@ public class CompanyListDAOImpl implements CompanyListDAO {
 					String sql = "SELECT * FROM company_details";
 					
 					//Get the database connection
-					connection = DBConnection.openConnection();
+					connection = DBConnection.getConnection();
 					
 					//Create a statement
 					statement = connection.createStatement();

@@ -6,38 +6,36 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import org.project.companies.model.Account;
+import org.project.companies.util.DBConnection;
 
 public class AccountDetailsDAO {
+	
+	public static final String INSERT_ACCOUNT_SQL = "INSERT INTO account_details" + 
+			" (companyId, first_name, last_name, username, password, phone, email) VALUES " +
+			" (?, ?, ?, ?, ?, ?, ?);";
+	
+	public AccountDetailsDAO() {
+		
+	}
 
-	public int registerAccountDetails(Account account) throws ClassNotFoundException{
-		String INSERT_USERS_SQL = "INSERT INTO account_details" + 
-				" (accountId, companyId, first_name, last_name, username, password, phone, email) VALUES " +
-				" (?, ?, ?, ?, ?, ?, ?, ?);";
-		
-		int result = 0;
-		
-		Class.forName("com.mysql.cj.jdbc.Driver");
-		
-		try (Connection connection = DriverManager
-				.getConnection("jdbc:mysql://localhost:3306/companyunite?useSSL=false", "root", "Celeron123!");
-				
-				PreparedStatement preparedStatement = connection.prepareStatement(INSERT_USERS_SQL)){
-			preparedStatement.setInt(1, 9);
-			preparedStatement.setInt(2, 2);
-			preparedStatement.setString(3, account.getFirstName());
-			preparedStatement.setString(4, account.getLastName());
-			preparedStatement.setString(5, account.getUsername());
-			preparedStatement.setString(6, account.getPassword());
-			preparedStatement.setString(7, account.getPhone());
-			preparedStatement.setString(8, account.getEmail());
-			
+	DBConnection newDBConnection = new DBConnection();
+	
+	public void registerAccountDetails(Account account) throws SQLException{
+		System.out.println(INSERT_ACCOUNT_SQL);
+		try(Connection connection = newDBConnection.getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(INSERT_ACCOUNT_SQL)){
+			preparedStatement.setInt(1, 2);
+			preparedStatement.setString(2, account.getFirstName());
+			preparedStatement.setString(3, account.getLastName());
+			preparedStatement.setString(4, account.getUsername());
+			preparedStatement.setString(5, account.getPassword());
+			preparedStatement.setString(6, account.getPhone());
+			preparedStatement.setString(7, account.getEmail());
 			System.out.println(preparedStatement);
 			
-			result = preparedStatement.executeUpdate();
+			preparedStatement.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return result;
 	}
 	
 	public boolean validate(Account account) throws ClassNotFoundException {
@@ -58,8 +56,6 @@ public class AccountDetailsDAO {
 			printSQLException(e);
 		}
 		return status;
-		
-				
 	}
 
 	private void printSQLException(SQLException e) {

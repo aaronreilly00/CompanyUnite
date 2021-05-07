@@ -13,10 +13,6 @@ import org.project.companies.model.Company;
 import org.project.companies.util.DBConnection;
 
 public class UpdateCompanyDAO {
-
-	private static final String URL = "jdbc:mysql://localhost:3306/companyunite?useSSL=false";
-	private static final String USERNAME = "root";
-	private static final String PASSWORD = "Celeron123!";
 	
 	private static final String INSERT_COMPANIES_SQL = "INSERT INTO companyunite.company_details" + " (companyName, address, postcode, sector, details) VALUES " + "(?,?,?,?,?);";
 	private static final String SELECT_COMPANY_BY_ID = "select companyId, companyName, address, postcode, sector, details from companyunite.company_details where companyId =?";
@@ -26,27 +22,13 @@ public class UpdateCompanyDAO {
 	
 	public UpdateCompanyDAO() {
 	}
-
-	protected Connection getConnection() {
-		Connection connection = null;
-		try {
-			Class.forName("com.mysql.cj.jdbc.Driver");
-			connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return connection;
-	}
 	
+	DBConnection newDBConnection = new DBConnection();
 	
 	//insert 
 	public void insertCompany(Company company) throws SQLException {
 		System.out.println(INSERT_COMPANIES_SQL);
-		try(Connection connection = getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(INSERT_COMPANIES_SQL)){
+		try(Connection connection = newDBConnection.getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(INSERT_COMPANIES_SQL)){
 			preparedStatement.setString(1, company.getCompanyName());
 			preparedStatement.setString(2, company.getAddress());
 			preparedStatement.setString(3, company.getPostcode());
@@ -62,7 +44,7 @@ public class UpdateCompanyDAO {
 	//update
 	public boolean updateCompany(Company company) throws SQLException {
 		boolean companyUpdated;
-		try(Connection connection = getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_COMPANY_SQL);){
+		try(Connection connection = newDBConnection.getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_COMPANY_SQL);){
 			System.out.println(preparedStatement);
 			preparedStatement.setString(1, company.getCompanyName());
 			preparedStatement.setString(2, company.getAddress());
@@ -78,7 +60,7 @@ public class UpdateCompanyDAO {
 	//Select company by id
 	public Company selectCompany(int companyId){
 		Company company = null;
-		try(Connection connection = getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(SELECT_COMPANY_BY_ID)){
+		try(Connection connection = newDBConnection.getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(SELECT_COMPANY_BY_ID)){
 			preparedStatement.setInt(1, companyId);
 			System.out.println(preparedStatement);
 			
@@ -102,7 +84,7 @@ public class UpdateCompanyDAO {
 	//select companies
 	public List<Company> selectAllCompanies(){
 		List<Company> companies = new ArrayList<>();
-		try(Connection connection = getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ALL_COMPANIES)){
+		try(Connection connection = newDBConnection.getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ALL_COMPANIES)){
 			System.out.println(preparedStatement);
 			
 			ResultSet rs = preparedStatement.executeQuery();
@@ -125,7 +107,7 @@ public class UpdateCompanyDAO {
 	//delete company
 	public boolean deleteCompany(int companyId) throws SQLException {
 		boolean rowDeleted;
-		try (Connection connection = getConnection(); PreparedStatement statement = connection.prepareStatement(DELETE_COMPANY_SQL);) {
+		try (Connection connection = newDBConnection.getConnection(); PreparedStatement statement = connection.prepareStatement(DELETE_COMPANY_SQL);) {
 			statement.setInt(1, companyId);
 			rowDeleted = statement.executeUpdate() > 0;
 		}
