@@ -10,7 +10,6 @@
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-secondary">
-  <a class="navbar-brand" href="#">Navbar</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -20,10 +19,13 @@
         <a class="nav-link" href="/CompanyUnite/home.jsp">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
+        <a class="nav-link" href="/CompanyUnite/Login.jsp">Login</a>
+      </li>
+      <li class="nav-item">
         <a class="nav-link" href="/CompanyUnite/CompanyListController">Company List</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link disabled" href="#">About us</a>
+        <a class="nav-link" href="/CompanyUnite/aboutUs.jsp">About us</a>
       </li>
     </ul>
   </div>

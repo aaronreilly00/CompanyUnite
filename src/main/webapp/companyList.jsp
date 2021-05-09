@@ -30,12 +30,12 @@
 			</thead>
 			<tbody>
 			<%
-			String host = "jdbc:mysql://localhost:3306/companyunite";
+			String host = "jdbc:mysql://eu-cdbr-west-01.cleardb.com/heroku_298fc475a99a62d";
 			Connection conn = null;
 			Statement stat = null;
 			ResultSet res = null;
 			Class.forName("com.mysql.cj.jdbc.Driver");
-        	conn = DriverManager.getConnection(host,"root","Celeron123!");
+        	conn = DriverManager.getConnection(host,"b0a60f8774be0e","13f98876");
         	stat = conn.createStatement();
 			String query = request.getParameter("q");
 			String data;

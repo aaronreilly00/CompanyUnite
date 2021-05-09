@@ -14,11 +14,11 @@ import org.project.companies.util.DBConnection;
 
 public class UpdateCompanyDAO {
 	
-	private static final String INSERT_COMPANIES_SQL = "INSERT INTO companyunite.company_details" + " (companyName, address, postcode, sector, details) VALUES " + "(?,?,?,?,?);";
-	private static final String SELECT_COMPANY_BY_ID = "select companyId, companyName, address, postcode, sector, details from companyunite.company_details where companyId =?";
-	private static final String SELECT_ALL_COMPANIES = "select * from companyunite.company_details";
-	private static final String DELETE_COMPANY_SQL = "delete from companyunite.company_details where companyId = ?;";
-	private static final String UPDATE_COMPANY_SQL = "update companyunite.company_details set companyName = ?, address = ?, postcode = ?, sector = ?, details = ? where companyId = ?;";
+	private static final String INSERT_COMPANIES_SQL = "INSERT INTO heroku_298fc475a99a62d.company_details (companyName, address, postcode, sector, details) VALUES (?,?,?,?,?);";
+	private static final String SELECT_COMPANY_BY_ID = "select companyId, companyName, address, postcode, sector, details from company_details where companyId =?";
+	private static final String SELECT_ALL_COMPANIES = "select * from company_details";
+	private static final String DELETE_COMPANY_SQL = "delete from company_details where companyId = ?;";
+	private static final String UPDATE_COMPANY_SQL = "update company_details set companyName = ?, address = ?, postcode = ?, sector = ?, details = ? where companyId = ?;";
 	
 	public UpdateCompanyDAO() {
 	}
@@ -28,7 +28,7 @@ public class UpdateCompanyDAO {
 	//insert 
 	public void insertCompany(Company company) throws SQLException {
 		System.out.println(INSERT_COMPANIES_SQL);
-		try(Connection connection = newDBConnection.getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(INSERT_COMPANIES_SQL)){
+		try(Connection connection = newDBConnection.getConnection2(); PreparedStatement preparedStatement = connection.prepareStatement(INSERT_COMPANIES_SQL)){
 			preparedStatement.setString(1, company.getCompanyName());
 			preparedStatement.setString(2, company.getAddress());
 			preparedStatement.setString(3, company.getPostcode());
@@ -44,7 +44,7 @@ public class UpdateCompanyDAO {
 	//update
 	public boolean updateCompany(Company company) throws SQLException {
 		boolean companyUpdated;
-		try(Connection connection = newDBConnection.getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_COMPANY_SQL);){
+		try(Connection connection = newDBConnection.getConnection2(); PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_COMPANY_SQL);){
 			System.out.println(preparedStatement);
 			preparedStatement.setString(1, company.getCompanyName());
 			preparedStatement.setString(2, company.getAddress());
@@ -60,7 +60,7 @@ public class UpdateCompanyDAO {
 	//Select company by id
 	public Company selectCompany(int companyId){
 		Company company = null;
-		try(Connection connection = newDBConnection.getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(SELECT_COMPANY_BY_ID)){
+		try(Connection connection = newDBConnection.getConnection2(); PreparedStatement preparedStatement = connection.prepareStatement(SELECT_COMPANY_BY_ID)){
 			preparedStatement.setInt(1, companyId);
 			System.out.println(preparedStatement);
 			
@@ -84,7 +84,7 @@ public class UpdateCompanyDAO {
 	//select companies
 	public List<Company> selectAllCompanies(){
 		List<Company> companies = new ArrayList<>();
-		try(Connection connection = newDBConnection.getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ALL_COMPANIES)){
+		try(Connection connection = newDBConnection.getConnection2(); PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ALL_COMPANIES)){
 			System.out.println(preparedStatement);
 			
 			ResultSet rs = preparedStatement.executeQuery();
@@ -107,7 +107,7 @@ public class UpdateCompanyDAO {
 	//delete company
 	public boolean deleteCompany(int companyId) throws SQLException {
 		boolean rowDeleted;
-		try (Connection connection = newDBConnection.getConnection(); PreparedStatement statement = connection.prepareStatement(DELETE_COMPANY_SQL);) {
+		try (Connection connection = newDBConnection.getConnection2(); PreparedStatement statement = connection.prepareStatement(DELETE_COMPANY_SQL);) {
 			statement.setInt(1, companyId);
 			rowDeleted = statement.executeUpdate() > 0;
 		}

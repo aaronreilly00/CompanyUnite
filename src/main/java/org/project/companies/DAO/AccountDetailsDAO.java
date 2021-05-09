@@ -10,9 +10,7 @@ import org.project.companies.util.DBConnection;
 
 public class AccountDetailsDAO {
 	
-	public static final String INSERT_ACCOUNT_SQL = "INSERT INTO account_details" + 
-			" (companyId, first_name, last_name, username, password, phone, email) VALUES " +
-			" (?, ?, ?, ?, ?, ?, ?);";
+	public static final String INSERT_ACCOUNT_SQL = "INSERT INTO heroku_298fc475a99a62d.account_details (companyId, first_name, last_name, username, password, phone, email) VALUES (?, ?, ?, ?, ?, ?, ?);";
 	
 	public AccountDetailsDAO() {
 		
@@ -22,8 +20,8 @@ public class AccountDetailsDAO {
 	
 	public void registerAccountDetails(Account account) throws SQLException{
 		System.out.println(INSERT_ACCOUNT_SQL);
-		try(Connection connection = newDBConnection.getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(INSERT_ACCOUNT_SQL)){
-			preparedStatement.setInt(1, 2);
+		try(Connection connection = newDBConnection.getConnection2(); PreparedStatement preparedStatement = connection.prepareStatement(INSERT_ACCOUNT_SQL)){
+			preparedStatement.setInt(1, 5);
 			preparedStatement.setString(2, account.getFirstName());
 			preparedStatement.setString(3, account.getLastName());
 			preparedStatement.setString(4, account.getUsername());
@@ -43,7 +41,7 @@ public class AccountDetailsDAO {
 		
 		Class.forName("com.mysql.cj.jdbc.Driver");
 		
-		try(Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/companyunite?useSSL=false", "root", "Celeron123!");
+		try(Connection connection = DriverManager.getConnection("jdbc:mysql://eu-cdbr-west-01.cleardb.com/heroku_298fc475a99a62d", "b0a60f8774be0e", "13f98876");
 		
 		PreparedStatement preparedStatement = connection.prepareStatement("select * from account_details where username = ? and password = ? ")){
 			preparedStatement.setString(1, account.getUsername());
