@@ -1,5 +1,6 @@
 	<%@page import="java.sql.*" %>
 	<%@page import="java.sql.Connection" %>
+	<%@page import="org.project.companies.util.DBConnection" %>
     <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -9,7 +10,7 @@
 <title>Company List</title>
 <link href="https://unpkg.com/bootstrap@4.5.0/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 </head>
-<%@ include file="headerLogout.jsp"%>
+<%@ include file="leastPrivilegeHeader.jsp"%>
 <body>
 
 	<div class="col-md-4">

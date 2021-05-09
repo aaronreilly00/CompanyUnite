@@ -12,7 +12,7 @@ import org.project.companies.model.Account;
 
 
 @WebServlet("/Login")
-public class LoginServlet extends HttpServlet {
+public class LoginController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private AccountDetailsDAO accountDetailsDAO = new AccountDetailsDAO();
 	
@@ -33,7 +33,7 @@ public class LoginServlet extends HttpServlet {
 		
 		try {
 			if (accountDetailsDAO.validate(account)) {			
-				response.sendRedirect("UpdatedCompanyList");
+				response.sendRedirect("ModifyCompanyList");
 			} else {	
 				response.sendRedirect("Login.jsp");
 			}

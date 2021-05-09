@@ -8,7 +8,7 @@
 <title>Register Account</title>
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
 </head>
-<%@ include file="header.jsp"%>
+<%@ include file="adminHeader.jsp"%>
 <body>
 	<div>
 		<h1></h1>

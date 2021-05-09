@@ -7,7 +7,7 @@
 <title>Login</title>
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
 </head>
-<%@ include file="headerLogout.jsp"%>
+<%@ include file="leastPrivilegeHeader.jsp"%>
 <body>
 <form action="<%=request.getContextPath()%>/Login" method="post">
 <div class="container">
@@ -17,7 +17,6 @@
 					<div class="jumbotron">
 						<h1 class="text-center">Login Page</h1>
 						<br>
-						<form name="loginform" method="post" action="createSession.jsp">
 						<div class="form-group">
 							<label class="control-label" for="username">Username</label>
 							<input type="text" name="username" class="form-control" placeholder="Username">
@@ -32,7 +31,6 @@
 						<button type="submit" class="btn btn-outlining-warning">Login</button>
 						<button type="reset" class="btn btn-outlining-dark">Close</button>
 						</div>
-						</form>
 					</div>
 				</div>
 			<div class="col-md-3"></div>

@@ -8,7 +8,7 @@
 <title>Register Company</title>
 <link href="https://unpkg.com/bootstrap@4.5.0/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 </head>
-<%@ include file="header.jsp"%>
+<%@ include file="adminHeader.jsp"%>
 <body>
 	<div class="container col-md-5">
 		<div class="card">

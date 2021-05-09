@@ -8,7 +8,7 @@
 <title>Company List</title>
 <link href="https://unpkg.com/bootstrap@4.5.0/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 </head>
-<%@ include file="header.jsp"%>
+<%@ include file="adminHeader.jsp"%>
 <body>
 
 	<div class="container">
@@ -28,6 +28,7 @@
 				<th>Postcode</th>
 				<th>Sector</th>
 				<th>Additional Information</th>
+				<th>Modify/Delete</th>
 			</tr>
 			<c:forEach items = "${listCompanies}" var = "companyDetails">
 			<tr>
@@ -39,8 +40,7 @@
 				<td><c:out value="${companyDetails.details}" /></td>
 				
 				<td><a href="edit?companyId=<c:out value='${companyDetails.companyId}' />">Edit</a>
-								&nbsp;&nbsp;&nbsp;&nbsp; <a
-								href="delete?companyId=<c:out value='${companyDetails.companyId}' />">Delete</a></td>
+					/ <a href="delete?companyId=<c:out value='${companyDetails.companyId}' />">Delete</a></td>
 			</tr>
 		
 			</c:forEach>

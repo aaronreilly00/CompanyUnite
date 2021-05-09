@@ -13,7 +13,7 @@ import org.project.companies.model.Account;
 
 
 @WebServlet("/register")
-public class AccountServlet extends HttpServlet {
+public class AccountController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	private AccountDetailsDAO accountDetailsDAO = new AccountDetailsDAO();

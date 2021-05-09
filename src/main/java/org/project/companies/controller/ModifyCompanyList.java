@@ -16,7 +16,7 @@ import javax.servlet.annotation.WebServlet;
  * Servlet implementation class UpdatedCompanyList
  */
 @WebServlet("/")
-public class UpdatedCompanyList extends HttpServlet {
+public class ModifyCompanyList extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	private UpdateCompanyDAO updateCompanyDAO;
@@ -111,7 +111,7 @@ public class UpdatedCompanyList extends HttpServlet {
 	private void listCompanies(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException {
 		List<Company> listCompanies = updateCompanyDAO.selectAllCompanies();
 		request.setAttribute("listCompanies", listCompanies);
-		RequestDispatcher dispatcher = request.getRequestDispatcher("updatedCompanyList.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("modifyCompanyList.jsp");
 		dispatcher.forward(request, response);
 	}
 	
