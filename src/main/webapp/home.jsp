@@ -3,11 +3,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html"; charset="ISO-8859-1">
 <title>Insert title here</title>
+<link rel="stylesheet" href="style1.css">
 </head>
-<%@ include file="leastPrivilegeHeader.jsp"%>
-<body>
 
+<body>
+<div>
+ <img class="test" src="ProfilePhoto.png">
+</div>
 </body>
 </html>

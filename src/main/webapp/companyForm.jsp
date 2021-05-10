@@ -39,31 +39,31 @@
 				<fieldset class="form-group">
 					<label>Company Name</label> <input type="text"
 						value="<c:out value='${company.companyName}' />" class="form-control"
-						name="companyName">
+						name="companyName" required>
 				</fieldset>
 
 				<fieldset class="form-group">
 					<label>Address</label> <input type="text"
 						value="<c:out value='${company.address}' />" class="form-control"
-						name="address">
+						name="address" required>
 				</fieldset>
 
 				<fieldset class="form-group">
 					<label>Postcode</label> <input type="text"
 						value="<c:out value='${company.postcode}' />" class="form-control"
-						name="postcode">
+						name="postcode" required>
 				</fieldset>
 				
 				<fieldset class="form-group">
 					<label>Sector</label> <input type="text"
 						value="<c:out value='${company.sector}' />" class="form-control"
-						name="sector">
+						name="sector" required>
 				</fieldset>
 				
 				<fieldset class="form-group">
 					<label>Details</label> <input type="text"
 						value="<c:out value='${company.details}' />" class="form-control"
-						name="details">
+						name="details" required>
 				</fieldset>
 
 				<button type="submit" class="btn btn-success">Save</button>

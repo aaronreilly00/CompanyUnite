@@ -7,69 +7,46 @@
 <meta charset="ISO-8859-1">
 <title>Register Account</title>
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+<script defer src="password.js"></script>
 </head>
 <%@ include file="adminHeader.jsp"%>
 <body>
 	<div>
 		<h1></h1>
-		<form action="<%=request.getContextPath() %>/register" method="post">
+		<div id="error"></div>
+		<form id="form" action="<%=request.getContextPath() %>/register" method="post">
 		<div class="container col-md-5">
 			<div class="card">
 				<div class="card-body">
-			
-				<!--<tr>
-					<td>First Name</td>
-					<td><input type="text" name="firstName" /></td>
-				</tr>  -->
 				<fieldset class="form-group">
 					<label>First Name</label> <input type="text"
 						value="<c:out value='${account.firstName}' />" class="form-control"
-						name="firstName">
+						name="firstName" required>
 				</fieldset>
-				<!--<tr>
-					<td>Last Name</td>
-					<td><input type="text" name="lastName" /></td>
-				</tr>  -->
 				<fieldset class="form-group">
 					<label>Last Name</label> <input type="text"
 						value="<c:out value='${account.lastName}' />" class="form-control"
-						name="lastName">
+						name="lastName" required>
 				</fieldset>
-				<!--<tr>
-					<td>Username</td>
-					<td><input type="text" name="username" /></td>
-				</tr>  -->
 				<fieldset class="form-group">
 					<label>Username</label> <input type="text"
 						value="<c:out value='${account.username}' />" class="form-control"
-						name="username">
+						name="username" required>
 				</fieldset>
-				<!--<tr>
-					<td>Password</td>
-					<td><input type="text" name="password" /></td>
-				</tr>  -->
 				<fieldset class="form-group">
-					<label>Password</label> <input type="text"
+					<label>Password</label> <input id="password" type="text"
 						value="<c:out value='${account.password}' />" class="form-control"
 						name="password">
 				</fieldset>
-				<!--<tr>
-					<td>Phone</td>
-					<td><input type="text" name="phone" /></td>
-				</tr>  -->
 				<fieldset class="form-group">
 					<label>Phone</label> <input type="text"
 						value="<c:out value='${account.phone}' />" class="form-control"
-						name="phone">
+						name="phone" required>
 				</fieldset>
-				<!--<tr>
-					<td>Email</td>
-					<td><input type="text" name="email" /></td>
-				</tr>  -->
 				<fieldset class="form-group">
 					<label>Email</label> <input type="text"
 						value="<c:out value='${account.email}' />" class="form-control"
-						name="email">
+						name="email" required>
 				</fieldset>
 			<button type="submit" class="btn btn-success">Save</button>
 		</div>

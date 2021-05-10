@@ -6,11 +6,13 @@
 <meta charset="ISO-8859-1">
 <title>Login</title>
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+<script defer src="password.js"></script>
 </head>
 <%@ include file="leastPrivilegeHeader.jsp"%>
 <body>
-<form action="<%=request.getContextPath()%>/Login" method="post">
+<form id="form" action="<%=request.getContextPath()%>/Login" method="post">
 <div class="container">
+	<div id="error"></div>
 	<div class="row">
 				<div class="col-lg-3"></div>
 				<div class="col-sm-6 col-xs-12">
@@ -19,11 +21,11 @@
 						<br>
 						<div class="form-group">
 							<label class="control-label" for="username">Username</label>
-							<input type="text" name="username" class="form-control" placeholder="Username">
+							<input id="username" type="text" name="username" placeholder="Username" required>
 						</div>
 						<div class="form-group">
 							<label class="control-label" for="passwrord">Password</label>
-							<input type="text" name="password" class="form-control" placeholder="Password">
+							<input id="password" type="text" name="password" placeholder="Password" required>
 						</div>
 						<input type="checkbox" name="remember"> Remember Me?
 						<br><br>
