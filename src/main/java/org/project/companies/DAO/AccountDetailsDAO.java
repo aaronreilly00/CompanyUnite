@@ -10,7 +10,8 @@ import org.project.companies.util.DBConnection;
 
 public class AccountDetailsDAO {
 	
-	public static final String INSERT_ACCOUNT_SQL = "INSERT INTO heroku_298fc475a99a62d.account_details (companyId, first_name, last_name, username, password, phone, email) VALUES (?, ?, ?, ?, ?, ?, ?);";
+	public static final String INSERT_ACCOUNT_SQL = "INSERT INTO heroku_298fc475a99a62d.account_details "
+			+ "(companyId, first_name, last_name, username, password, phone, email) VALUES (?, ?, ?, ?, ?, ?, ?);";
 	
 	public AccountDetailsDAO() {
 		

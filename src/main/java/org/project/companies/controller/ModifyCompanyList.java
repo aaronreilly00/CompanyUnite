@@ -20,11 +20,9 @@ public class ModifyCompanyList extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	private UpdateCompanyDAO updateCompanyDAO;
-	//CompanyListDAOImpl companyListDAOImpl;
 
 	public void init() {
 		updateCompanyDAO = new UpdateCompanyDAO();
-		//companyListDAOImpl = new CompanyListDAOImpl();
 	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -114,7 +112,4 @@ public class ModifyCompanyList extends HttpServlet {
 		RequestDispatcher dispatcher = request.getRequestDispatcher("modifyCompanyList.jsp");
 		dispatcher.forward(request, response);
 	}
-	
-	
-
 }

@@ -12,8 +12,7 @@
 <%@ include file="adminHeader.jsp"%>
 <body>
 	<div>
-		<h1></h1>
-		<div id="error"></div>
+		<h1 class="text-center mt-5 text-success">Register new administrator account</h1>
 		<form id="form" action="<%=request.getContextPath() %>/register" method="post">
 		<div class="container col-md-5">
 			<div class="card">
@@ -48,12 +47,11 @@
 						value="<c:out value='${account.email}' />" class="form-control"
 						name="email" required>
 				</fieldset>
-			<button type="submit" class="btn btn-success">Save</button>
+			<button type="submit" class="btn btn-info">Save</button>
 		</div>
 		</div>
 		</div>
 		</form>
 	</div>
 </body>
-<%@ include file="footer.jsp"%>
 </html>

@@ -5,7 +5,6 @@ import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
-import org.project.companies.model.Account;
 import org.project.companies.model.Company;
 
 public class CompanyDAO {

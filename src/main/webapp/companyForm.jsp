@@ -22,14 +22,14 @@
 				</c:if>
 
 				<caption>
-					<h2>
+					<h1 class="text-center mt-5 text-success text-success">
 						<c:if test="${company != null}">
-            			Edit User
+            			Edit New Company
             		</c:if>
 						<c:if test="${company == null}">
-            			Add New User
+            			Add New Company
             		</c:if>
-					</h2>
+					</h1>
 				</caption>
 				
 				<c:if test="${company != null}">
@@ -66,11 +66,10 @@
 						name="details" required>
 				</fieldset>
 
-				<button type="submit" class="btn btn-success">Save</button>
-				</form>
+				<button type="submit" class="btn btn-info">Save</button>
+				
 			</div>
 		</div>
 	</div>
 </body>
-<%@ include file="footer.jsp"%>
 </html>

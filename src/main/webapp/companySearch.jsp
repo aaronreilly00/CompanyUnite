@@ -13,15 +13,15 @@
 <%@ include file="leastPrivilegeHeader.jsp"%>
 <body>
 
-	<div class="col-md-4">
+	<div class="col-md-4 mb-2">
 		<form action="" method-"get">
-			<input type="text" class="form-control" name="q" placeholder="Search here...."/>
+			<input type="text" class="form-control" name="search" placeholder="Search postcode or sector"/>
 		</form>
 	</div>
-	<div class="container">
+	<div class="container mb-5">
 		<table border = "1" class="table table-striped table-bordered">
 		<thead>
-			<tr class="thead-dark">
+			<tr class="bg-info">
 				<th>Name</th>
 				<th>Address</th>
 				<th>Postcode</th>
@@ -38,10 +38,10 @@
 			Class.forName("com.mysql.cj.jdbc.Driver");
         	conn = DriverManager.getConnection(host,"b0a60f8774be0e","13f98876");
         	stat = conn.createStatement();
-			String query = request.getParameter("q");
+			String result = request.getParameter("search");
 			String data;
-			if(query!=null){
-				data = "select * FROM company_details where postcode like '%"+query+"%' or sector like '%"+query+"%'";
+			if(result!=null){
+				data = "select * FROM company_details where postcode like '%"+result+"%' or sector like '%"+result+"%'";
 			}else{
 				data = "select * FROM company_details order by companyId desc";
 			}
@@ -62,5 +62,4 @@
 		</table>
 	</div>
 </body>
-<%@ include file="footer.jsp"%>
 </html>

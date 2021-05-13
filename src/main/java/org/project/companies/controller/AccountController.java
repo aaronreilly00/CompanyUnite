@@ -19,8 +19,6 @@ public class AccountController extends HttpServlet {
 	private AccountDetailsDAO accountDetailsDAO = new AccountDetailsDAO();
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// Call DAO method to get list of accounts
-		//List<AccountDetails> list = testCompaniesDAO.get();
 		
 		//Add the accounts to request object
 		response.getWriter().append("Served at: ").append(request.getContextPath());

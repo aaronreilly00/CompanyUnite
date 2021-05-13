@@ -12,7 +12,7 @@
 <body>
 
 	<div class="container">
-			<h3 class="text-center">Register Company</h3>
+			<h1 class="text-center text-success">Register Company</h1>
 			<hr>
 			<div class="container text-left">
 
@@ -21,7 +21,7 @@
 			</div>
 			<br>
 		<table border = "1" class="table table-striped table-bordered">
-			<tr class="thead-dark">
+			<tr class="bg-info">
 				<th>ID</th>
 				<th>Name</th>
 				<th>Address</th>
