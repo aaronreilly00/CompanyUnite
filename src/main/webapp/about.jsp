@@ -29,29 +29,29 @@
 <form class="row g-3 needs-validation" novalidate>
   <div class="col-md-4">
     <label for="companyName" class="form-label">Company name</label>
-    <input type="text" class="form-control" id="validationCustom01" value="Company Name" required>
+    <input type="text" class="form-control" id="companyName" value="Company Name" required>
     </div>
   </div>
   <div class="col-md-4">
     <label for="address" class="form-label">Address</label>
-    <input type="text" class="form-control" id="validationCustom02" value="Address" required>
+    <input type="text" class="form-control" id="address" value="Address" required>
     </div>
   </div>
   <div class="col-md-4">
     <label for="postcode" class="form-label">Postcode</label>
     <div class="input-group has-validation">
-      <input type="text" class="form-control" id="validationCustomUsername" value="Postcode" aria-describedby="inputGroupPrepend" required>
+      <input type="text" class="form-control" id="postcode" value="Postcode" aria-describedby="inputGroupPrepend" required>
       </div>
     </div>
   </div>
   <div class="col-md-6">
     <label for="details" class="form-label">Additional Information</label>
-    <input type="text" class="form-control" id="validationCustom03" value="Additional Information" required>
+    <input type="text" class="form-control" id="details" value="Additional Information" required>
     </div>
   </div>
   <div class="col-md-3">
     <label for="Sector" class="form-label">Sector</label>
-    <input type="text" class="form-control" id="validationCustom05" value="Sector" required>
+    <input type="text" class="form-control" id="Sector" value="Sector" required>
     </div>
   </div>
   <div class="col-12 mb-5 text-center">

@@ -55,12 +55,11 @@ public class AccountController extends HttpServlet {
 		
 		try {
 			accountDetailsDAO.registerAccountDetails(account);
-			//accountDetailsDAO.registerAccountDetails(accountDetails);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		response.sendRedirect("Login.jsp");
+		response.sendRedirect("/CompanyUnite/ModifyCompanyList");
 		
 	}
 }
