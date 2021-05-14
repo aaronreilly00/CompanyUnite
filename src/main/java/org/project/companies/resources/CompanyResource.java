@@ -11,16 +11,12 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
-
-import org.project.companies.model.Account;
 import org.project.companies.model.Company;
-import org.project.companies.services.AccountService;
 import org.project.companies.services.CompanyService;
 
 @Path("/project/companies")
 public class CompanyResource {
 	CompanyService service = new CompanyService();
-	AccountService ac = new AccountService();
 	
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
@@ -49,12 +45,5 @@ public class CompanyResource {
 		service.deleteCompany(companyId);
 	}
 	
-	@GET
-	@Path("/{companyId}/accounts")
-	@Produces(MediaType.APPLICATION_JSON)
-	public List<Account> getAccountsByCompany(@PathParam("companyId") int companyId) {
-		List<Account> accountlist = ac.getAccountsByCompany(companyId);
-		return accountlist;
-	}
 	
 }

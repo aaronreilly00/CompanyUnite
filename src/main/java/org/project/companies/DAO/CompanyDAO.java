@@ -38,6 +38,10 @@ public class CompanyDAO {
 		Company company = session.get(Company.class, id);
 		//company = updatedCompany;
 		company.setCompanyName(updatedCompany.getCompanyName());
+		company.setAddress(updatedCompany.getAddress());
+		company.setPostcode(updatedCompany.getPostcode());
+		company.setSector(updatedCompany.getSector());
+		company.setDetails(updatedCompany.getDetails());
 		session.getTransaction().commit();
 	}
 
