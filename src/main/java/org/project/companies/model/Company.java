@@ -5,22 +5,25 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+/*
+ * Company model class allows to identify the schema, table, also which field is the Id 
+ * These classes are used as objects when interacting with the database
+ */
 
-
-@Entity(name="company_details")
-@Table(name="company_details")
+@Entity(name = "company_details")
+@Table(name = "company_details")
 public class Company {
 	@Id
-	@Column(name="companyId")
+	@Column(name = "companyId")
 	int companyId;
 	String companyName;
 	String address;
 	String postcode;
 	String sector;
 	String details;
-	
+
 	public Company() {
-		
+
 	}
 
 	public Company(int companyId, String companyName, String address, String postcode, String sector, String details) {
@@ -32,7 +35,8 @@ public class Company {
 		this.sector = sector;
 		this.details = details;
 	}
-	public Company( String companyName, String address, String postcode, String sector, String details) {
+
+	public Company(String companyName, String address, String postcode, String sector, String details) {
 		super();
 		this.companyName = companyName;
 		this.address = address;
@@ -91,9 +95,8 @@ public class Company {
 
 	@Override
 	public String toString() {
-		return "Company [companyId=" + companyId + ", companyName=" + companyName + ", address=" + address + ", postcode=" + postcode
-				+ ", sector=" + sector + ", details=" + details + "]";
+		return "Company [companyId=" + companyId + ", companyName=" + companyName + ", address=" + address
+				+ ", postcode=" + postcode + ", sector=" + sector + ", details=" + details + "]";
 	}
-	
-	
+
 }

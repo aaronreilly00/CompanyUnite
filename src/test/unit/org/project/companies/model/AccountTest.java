@@ -1,20 +1,26 @@
 package org.project.companies.model;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+/*
+ * Unit test class, we test the getters from the account class to ensure data is returning as expected
+ * Using an asserEquals method compares both the expected result and the actual result
+ */
+
 public class AccountTest {
 
-	//create Company instance
-	Company company = new Company(3,"MobileCafe","23 oldtown road, whitehall","D11","Hospitality","Looking for open space to serve the public");
-		
-	//create Company instance
-	Account account = new Account(2,company,"Rachel","Johnson","RachJohnson567","hhfotyf369","08924372","RachJohnson@fakegmail.com");
-		
-		
+	// create Company instance
+	Company company = new Company(3, "MobileCafe", "23 oldtown road, whitehall", "D11", "Hospitality",
+			"Looking for open space to serve the public");
+
+	// create Company instance
+	Account account = new Account(2, company, "Rachel", "Johnson", "RachJohnson567", "hhfotyf369", "08924372",
+			"RachJohnson@fakegmail.com");
+
 	@Before
 	public void setUp() throws Exception {
 	}
@@ -27,42 +33,42 @@ public class AccountTest {
 	public void testGetFirstName() {
 		String expectFirstName = "Rachel";
 		String actualFirstName = account.getFirstName();
-		assertEquals(expectFirstName,actualFirstName);
+		assertEquals(expectFirstName, actualFirstName);
 	}
 
 	@Test
 	public void testGetLastName() {
 		String expectLastName = "Johnson";
 		String actualLastName = account.getLastName();
-		assertEquals(expectLastName,actualLastName);
+		assertEquals(expectLastName, actualLastName);
 	}
 
 	@Test
 	public void testGetUsername() {
 		String expectUsername = "RachJohnson567";
 		String actualUsername = account.getUsername();
-		assertEquals(expectUsername,actualUsername);
+		assertEquals(expectUsername, actualUsername);
 	}
 
 	@Test
 	public void testGetPassword() {
 		String expectPassword = "hhfotyf369";
 		String actualPassword = account.getPassword();
-		assertEquals(expectPassword,actualPassword);
+		assertEquals(expectPassword, actualPassword);
 	}
 
 	@Test
 	public void testGetPhone() {
 		String expectPhone = "08924372";
 		String actualPhone = account.getPhone();
-		assertEquals(expectPhone,actualPhone);
+		assertEquals(expectPhone, actualPhone);
 	}
 
 	@Test
 	public void testGetEmail() {
 		String expectEmail = "RachJohnson@fakegmail.com";
 		String actualEmail = account.getEmail();
-		assertEquals(expectEmail,actualEmail);
+		assertEquals(expectEmail, actualEmail);
 	}
 
 }

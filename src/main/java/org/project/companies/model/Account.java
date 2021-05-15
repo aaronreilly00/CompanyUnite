@@ -6,29 +6,33 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-@Entity(name="accounts_details")
-@Table(name="accounts_details")
+/*
+ * Account model class allows to identify the schema, table, also which field is the Id 
+ * These classes are used as objects when interacting with the database
+ */
+
+@Entity(name = "accounts_details")
+@Table(name = "accounts_details")
 public class Account {
 	@Id
 	int accountId;
-	//hibernate feature 
-	@ManyToOne(targetEntity=Company.class)
-	@JoinColumn(name="companyId")
+	// hibernate feature
+	@ManyToOne(targetEntity = Company.class)
+	@JoinColumn(name = "companyId")
 	Company company;
-	
+
 	String firstName;
 	String lastName;
 	String username;
 	String password;
 	String phone;
 	String email;
-	
+
 	public Account() {
-		
+
 	}
-	
-	public Account(String firstName, String lastName, String username, String password,
-			String phone, String email) {
+
+	public Account(String firstName, String lastName, String username, String password, String phone, String email) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -37,7 +41,7 @@ public class Account {
 		this.phone = phone;
 		this.email = email;
 	}
-	
+
 	public Account(int accountId, Company company, String firstName, String lastName, String username, String password,
 			String phone, String email) {
 		super();
@@ -114,6 +118,5 @@ public class Account {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	
-	
+
 }
